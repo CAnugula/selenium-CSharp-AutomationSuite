@@ -15,14 +15,16 @@ namespace Youi_Automation_Tests.Src.PageObjects
 
         public List<CartRowComponent> getCartItems()
         {
-            return new List<IWebElement>(driver.FindElements(By.CssSelector(".cart-item-row")))
+            return new List<IWebElement>(GetElements(".cart-item-row"))
                 .ConvertAll(new Converter<IWebElement,CartRowComponent>(e => new CartRowComponent(e)));
         }        
 
         public HomePage removeAndUpdateCartItems()
         {
             getCartItems().Select(e => e.selectItemToRemove()).ToList();
+
             updateCart();
+
             return new HomePage(driver);
         }
 
@@ -33,7 +35,7 @@ namespace Youi_Automation_Tests.Src.PageObjects
 
         private List<CartTotalComponent> getCartTotal()
         {            
-            return new List<IWebElement>(driver.FindElements(By.CssSelector(".cart-total")))
+            return new List<IWebElement>(GetElements(".cart-total"))
                 .ConvertAll(new Converter<IWebElement,CartTotalComponent>(e=> new CartTotalComponent(e)));
         }
 
@@ -44,7 +46,8 @@ namespace Youi_Automation_Tests.Src.PageObjects
 
         public CheckoutPage clickIAgree()
         {
-            driver.FindElement(By.CssSelector("#termsofservice")).Click();
+            GetElement("#termsofservice").Click();
+
             return new CheckoutPage(driver);
         }
 

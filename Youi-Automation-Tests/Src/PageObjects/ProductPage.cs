@@ -1,7 +1,6 @@
 ﻿using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using Youi_Automation_Tests.Src.Component;
 
 namespace Youi_Automation_Tests.Src.PageObjects
@@ -14,15 +13,15 @@ namespace Youi_Automation_Tests.Src.PageObjects
 
         public List<ItemBoxComponent> getProductList()
         {
-            var ItemList = new List<IWebElement>(driver.FindElements(By.CssSelector(".product-item")))
+            var ItemList = new List<IWebElement>(GetElements(".product-item"))
                 .ConvertAll(new Converter<IWebElement,ItemBoxComponent>(e => new ItemBoxComponent(e)));
+
             return ItemList;
         }
 
         public void addItemToCart(string itemName)
         {
             getProductList().Find(e => e.getProductTitle().Contains(itemName)).clickAddToCart();
-
         }
     }
 }

@@ -9,6 +9,12 @@ namespace Youi_Automation_Tests.Tests
     [TestClass]
     public abstract class BaseTest
     {
+        // TODO: Read below as env variables
+        private readonly string WEBSHOP_URL = "https://demowebshop.tricentis.com";
+        private readonly string LOGIN_EMAIL = "youitest@automation.com";
+        private readonly string LOGIN_PWD = "12345678";
+        private readonly int DEFAULT_WAIT = 5; // in seconds
+
         public TestContext TestContext { get; set; }
         protected IWebDriver driver;
 
@@ -27,18 +33,18 @@ namespace Youi_Automation_Tests.Tests
         private void SetUpWebDriver()
         {
             //var options = new ChromeOptions();
-            //TODO:Read data from Environment variables
+            
             driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);//TODO Read from Env.variables
-            driver.Navigate().GoToUrl("https://demowebshop.tricentis.com");//TODO: Read from Env.var
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(DEFAULT_WAIT);
+            driver.Navigate().GoToUrl(WEBSHOP_URL);
 
         }
 
         protected HomePage Login()
         {
             var signInPage = new SignInPage(driver);
-            var homePage = signInPage.goToLoginIn().SetEmail("youitest@automation.com").SetPassword("12345678").SignIn();
+            var homePage = signInPage.goToLoginIn().SetEmail(LOGIN_EMAIL).SetPassword(LOGIN_PWD).SignIn();
             return homePage;
         }
 

@@ -7,12 +7,12 @@ namespace Youi_Automation_Tests.Src.PageObjects
     {
         public HomePage(IWebDriver driver):base(driver)
         {
-
         }
 
         public ProductPage goToBooks()
         {
             getTopMenuList().Find(e => e.Text.ContainsIgnoreCase("Books")).Click();
+
             return new ProductPage(driver);
         }
 
