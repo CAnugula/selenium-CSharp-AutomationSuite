@@ -33,12 +33,12 @@ namespace Youi_Automation_Tests.Src.PageObjects
                .Until(expression);
         }
 
-        public List<IWebElement> getTopMenuList()
+        public List<IWebElement> GetTopMenuList()
         {
             return GetElements(".top-menu a");
         }
          
-        public int getItemCountInShoppingCart()
+        public int GetItemCountInShoppingCart()
         {
             return Convert.ToInt32(GetElement(".cart-qty").Text.StripNonNumeric());
         }
@@ -49,21 +49,21 @@ namespace Youi_Automation_Tests.Src.PageObjects
                 .Until(d => d.FindElement(By.CssSelector(".ajax-loading-block-window")).GetAttribute("style").Contains("display: none;"));
         }
 
-        public ShoppingCartPage goToShoppingCart()
+        public ShoppingCartPage GoToShoppingCart()
         {
             GetElement(".ico-cart").Click();
 
             return new ShoppingCartPage(driver);
         }
 
-        public CheckoutPage goToCheckout()
+        public CheckoutPage GoToCheckout()
         {
             GetElement("#checkout").Click();
 
             return new CheckoutPage(driver);
         }
 
-        public string getOrderStatusMessage()
+        public string GetOrderStatusMessage()
         {
             new WebDriverWait(driver, TimeSpan.FromMinutes(3))
                .Until(d => d.FindElement(By.CssSelector(".page-title")).Text.Equals("Thank you"));

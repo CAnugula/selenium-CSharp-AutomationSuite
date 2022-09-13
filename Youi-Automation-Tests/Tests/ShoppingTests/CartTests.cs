@@ -10,22 +10,22 @@ namespace Youi_Automation_Tests.Tests.ShoppingTests
         {
             var homePage = Login();
 
-            var cartItemsCount = homePage.goToShoppingCart().getItemCountInShoppingCart();
+            var cartItemsCount = homePage.GoToShoppingCart().GetItemCountInShoppingCart();
             if (cartItemsCount != 0)
             {
-                homePage.goToShoppingCart().removeAndUpdateCartItems();
+                homePage.GoToShoppingCart().RemoveAndUpdateCartItems();
             }
 
-            var productPage = homePage.goToBooks();
+            var productPage = homePage.GoToBooks();
 
             // Add items to cart
-            productPage.addItemToCart("Fiction");
+            productPage.AddItemToCart("Fiction");
             productPage.HasLoadingSpinnerDisappeared();
-            productPage.addItemToCart("Health Book");
+            productPage.AddItemToCart("Health Book");
             productPage.HasLoadingSpinnerDisappeared();
 
-            Assert.AreEqual(productPage.getItemCountInShoppingCart(), 2);
-            Assert.AreEqual(homePage.goToShoppingCart().getCartSubTotal(), 34.00);
+            Assert.AreEqual(productPage.GetItemCountInShoppingCart(), 2);
+            Assert.AreEqual(homePage.GoToShoppingCart().GetCartSubTotal(), 34.00);
         }
 
     }

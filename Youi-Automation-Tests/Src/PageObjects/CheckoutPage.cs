@@ -12,7 +12,7 @@ namespace Youi_Automation_Tests.Src.PageObjects
         {
         }
 
-        public CheckoutPage setBillingAddress(BillingAddress billingAddress)
+        public CheckoutPage SetBillingAddress(BillingAddress billingAddress)
         {
             var billingAddressElement = GetElement("#opc-billing");
             var billingComponent = new BillingAddressComponent(billingAddressElement);
@@ -33,7 +33,7 @@ namespace Youi_Automation_Tests.Src.PageObjects
             return this;
         }
 
-        public CheckoutPage clickContinue()
+        public CheckoutPage ClickContinue()
         {
             GetElement("#billing-buttons-container .new-address-next-step-button").Click();
 
@@ -42,7 +42,7 @@ namespace Youi_Automation_Tests.Src.PageObjects
             return this;
         }
 
-        public CheckoutPage setShippingAddress()
+        public CheckoutPage SetShippingAddress()
         {
             GetElement("#shipping-buttons-container .new-address-next-step-button").Click();
 
@@ -51,7 +51,7 @@ namespace Youi_Automation_Tests.Src.PageObjects
             return this;
         }
 
-        public CheckoutPage setShippingMethod()
+        public CheckoutPage SetShippingMethod()
         {
             GetElement("#shipping-method-buttons-container .shipping-method-next-step-button").Click();
 
@@ -59,7 +59,7 @@ namespace Youi_Automation_Tests.Src.PageObjects
 
             return this;
         }
-        public CheckoutPage setPaymentMethod()
+        public CheckoutPage SetPaymentMethod()
         {
             GetElement("#payment-method-buttons-container .payment-method-next-step-button").Click();
 
@@ -67,7 +67,7 @@ namespace Youi_Automation_Tests.Src.PageObjects
 
             return this;
         }
-        public CheckoutPage setPaymentInformation()
+        public CheckoutPage SetPaymentInformation()
         {
             GetElement("#payment-info-buttons-container .payment-info-next-step-button").Click();
             
@@ -76,48 +76,48 @@ namespace Youi_Automation_Tests.Src.PageObjects
             return this;
         }
 
-        public CheckoutPage setConfirmOrder()
+        public CheckoutPage SetConfirmOrder()
         {
             GetElement("#confirm-order-buttons-container .confirm-order-next-step-button").Click();
 
             return this;
         }
         
-        public bool isBillingAddressNewFormDisabled()
+        public bool IsBillingAddressNewFormDisabled()
         {
             return GetElement("#billing-new-address-form").GetAttribute("style").Contains("display: none;");
         }
 
-        public double getCartTotal()
+        public double GetCartTotal()
         {
             var cartTotalElement = GetElement(".cart-total");
             var cartTotalCompoenent = new CartTotalComponent(cartTotalElement);
             
-            return cartTotalCompoenent.getTotal();
+            return cartTotalCompoenent.GetTotal();
         }
 
-        public double getShippingCost()
+        public double GetShippingCost()
         {
             var cartTotalElement = GetElement(".cart-total");
             var cartTotalCompoenent = new CartTotalComponent(cartTotalElement);
 
-            return cartTotalCompoenent.getShipping();
+            return cartTotalCompoenent.GetShipping();
         }
 
-        public double getAdditionalFee()
+        public double GetAdditionalFee()
         {
             var cartTotalElement = GetElement(".cart-total");
             var cartTotalCompoenent = new CartTotalComponent(cartTotalElement);
 
-            return cartTotalCompoenent.getAdditionalFee();
+            return cartTotalCompoenent.GetAdditionalFee();
         }
 
-        public double getSubTotal()
+        public double GetSubTotal()
         {
             var cartTotalElement = GetElement(".cart-total");
             var cartTotalCompoenent = new CartTotalComponent(cartTotalElement);
 
-            return cartTotalCompoenent.getSubTotal();
+            return cartTotalCompoenent.GetSubTotal();
         }
     }
 }

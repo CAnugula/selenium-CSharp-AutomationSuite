@@ -11,7 +11,7 @@ namespace Youi_Automation_Tests.Src.PageObjects
         {
         }
 
-        public List<ItemBoxComponent> getProductList()
+        public List<ItemBoxComponent> GetProductList()
         {
             var ItemList = new List<IWebElement>(GetElements(".product-item"))
                 .ConvertAll(new Converter<IWebElement,ItemBoxComponent>(e => new ItemBoxComponent(e)));
@@ -19,9 +19,9 @@ namespace Youi_Automation_Tests.Src.PageObjects
             return ItemList;
         }
 
-        public void addItemToCart(string itemName)
+        public void AddItemToCart(string itemName)
         {
-            getProductList().Find(e => e.getProductTitle().Contains(itemName)).clickAddToCart();
+            GetProductList().Find(e => e.getProductTitle().Contains(itemName)).clickAddToCart();
         }
     }
 }

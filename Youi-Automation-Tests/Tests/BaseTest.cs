@@ -44,7 +44,7 @@ namespace Youi_Automation_Tests.Tests
         protected HomePage Login()
         {
             var signInPage = new SignInPage(driver);
-            var homePage = signInPage.goToLoginIn().SetEmail(LOGIN_EMAIL).SetPassword(LOGIN_PWD).SignIn();
+            var homePage = signInPage.GoToLoginIn().SetEmail(LOGIN_EMAIL).SetPassword(LOGIN_PWD).SignIn();
             return homePage;
         }
 

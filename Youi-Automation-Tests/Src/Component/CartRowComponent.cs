@@ -1,13 +1,10 @@
 ﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Youi_Automation_Tests.Src.Component
 {
     public class CartRowComponent:BaseComponent
     {
-        public CartRowComponent(IWebElement root):base(root)
+        public CartRowComponent(IWebElement root): base(root)
         {
 
         }

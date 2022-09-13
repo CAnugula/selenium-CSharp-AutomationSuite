@@ -1,15 +1,11 @@
 ﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Youi_Automation_Tests.Src.Component
 {
     public class ItemBoxComponent: BaseComponent
     {
-        public ItemBoxComponent(IWebElement root):base(root)
+        public ItemBoxComponent(IWebElement root): base(root)
         {
-
         }
 
         public void clickAddToCart()

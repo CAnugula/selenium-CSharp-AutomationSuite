@@ -9,9 +9,9 @@ namespace Youi_Automation_Tests.Src.PageObjects
         {
         }
 
-        public ProductPage goToBooks()
+        public ProductPage GoToBooks()
         {
-            getTopMenuList().Find(e => e.Text.ContainsIgnoreCase("Books")).Click();
+            GetTopMenuList().Find(e => e.Text.ContainsIgnoreCase("Books")).Click();
 
             return new ProductPage(driver);
         }

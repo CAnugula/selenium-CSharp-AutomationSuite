@@ -13,38 +13,38 @@ namespace Youi_Automation_Tests.Src.PageObjects
 
         }
 
-        public List<CartRowComponent> getCartItems()
+        public List<CartRowComponent> GetCartItems()
         {
             return new List<IWebElement>(GetElements(".cart-item-row"))
                 .ConvertAll(new Converter<IWebElement,CartRowComponent>(e => new CartRowComponent(e)));
         }        
 
-        public HomePage removeAndUpdateCartItems()
+        public HomePage RemoveAndUpdateCartItems()
         {
-            getCartItems().Select(e => e.selectItemToRemove()).ToList();
+            GetCartItems().Select(e => e.selectItemToRemove()).ToList();
 
-            updateCart();
+            UpdateCart();
 
             return new HomePage(driver);
         }
 
-        public void updateCart()
+        public void UpdateCart()
         {
             driver.FindElement(By.Name("updatecart")).Click();
         }
 
-        private List<CartTotalComponent> getCartTotal()
+        private List<CartTotalComponent> GetCartTotal()
         {            
             return new List<IWebElement>(GetElements(".cart-total"))
                 .ConvertAll(new Converter<IWebElement,CartTotalComponent>(e=> new CartTotalComponent(e)));
         }
 
-        public double getCartSubTotal()
+        public double GetCartSubTotal()
         {
-            return getCartTotal().FirstOrDefault().getSubTotal();
+            return GetCartTotal().FirstOrDefault().GetSubTotal();
         }
 
-        public CheckoutPage clickIAgree()
+        public CheckoutPage ClickIAgree()
         {
             GetElement("#termsofservice").Click();
 

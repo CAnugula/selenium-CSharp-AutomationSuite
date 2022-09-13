@@ -11,7 +11,7 @@ namespace Youi_Automation_Tests.Src.PageObjects
             new WebDriverWait(driver, TimeSpan.FromSeconds(5)).Until(d => d.FindElement(By.CssSelector(".ico-login")).Displayed);
         }
 
-        public SignInPage goToLoginIn()
+        public SignInPage GoToLoginIn()
         {
             GetElement(".ico-login").Click();
 

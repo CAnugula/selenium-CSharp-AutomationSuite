@@ -10,19 +10,19 @@ namespace Youi_Automation_Tests.Tests.ShopingTests
         public void Checkout_ValidateTotalWithDefaultSettings()
         {
             var homePage = Login();
-            var cartItemsCount = homePage.goToShoppingCart().getItemCountInShoppingCart();
+            var cartItemsCount = homePage.GoToShoppingCart().GetItemCountInShoppingCart();
             if (cartItemsCount != 0)
             {
-                homePage.goToShoppingCart().removeAndUpdateCartItems();
+                homePage.GoToShoppingCart().RemoveAndUpdateCartItems();
             }
 
-            var productPage = homePage.goToBooks();
+            var productPage = homePage.GoToBooks();
 
             // Add items to cart
-            productPage.addItemToCart("Fiction");
+            productPage.AddItemToCart("Fiction");
             productPage.HasLoadingSpinnerDisappeared();
 
-            productPage.addItemToCart("Computing and Internet");
+            productPage.AddItemToCart("Computing and Internet");
             productPage.HasLoadingSpinnerDisappeared();
             
             // Fill out billing address
@@ -37,36 +37,36 @@ namespace Youi_Automation_Tests.Tests.ShopingTests
             billingAddress.phoneNumber = "0444667766";
 
             // Go to checkout
-            var checkOutPage = productPage.goToShoppingCart()
-                                            .clickIAgree()
-                                            .goToCheckout();
+            var checkOutPage = productPage.GoToShoppingCart()
+                                            .ClickIAgree()
+                                            .GoToCheckout();
 
             // Existing user
-            if (checkOutPage.isBillingAddressNewFormDisabled())
+            if (checkOutPage.IsBillingAddressNewFormDisabled())
             {
-                checkOutPage.clickContinue()
-                    .setShippingAddress()
-                    .setShippingMethod()
-                    .setPaymentMethod()
-                    .setPaymentInformation()
-                    .setConfirmOrder();
+                checkOutPage.ClickContinue()
+                    .SetShippingAddress()
+                    .SetShippingMethod()
+                    .SetPaymentMethod()
+                    .SetPaymentInformation()
+                    .SetConfirmOrder();
             }
             else
             {
                 // Fresh checkout
                 checkOutPage
-                .setBillingAddress(billingAddress)
-                .setShippingAddress()
-                .setShippingMethod()
-                .setPaymentMethod()
-                .setPaymentInformation()
-                .setConfirmOrder();
+                .SetBillingAddress(billingAddress)
+                .SetShippingAddress()
+                .SetShippingMethod()
+                .SetPaymentMethod()
+                .SetPaymentInformation()
+                .SetConfirmOrder();
             }
 
-            var calculatedTotal = checkOutPage.getShippingCost() + checkOutPage.getAdditionalFee() + checkOutPage.getSubTotal();
+            var calculatedTotal = checkOutPage.GetShippingCost() + checkOutPage.GetAdditionalFee() + checkOutPage.GetSubTotal();
 
-            Assert.AreEqual(checkOutPage.getCartTotal(), calculatedTotal);
-            Assert.IsTrue(checkOutPage.getOrderStatusMessage().Contains("successfully processed!"));
+            Assert.AreEqual(checkOutPage.GetCartTotal(), calculatedTotal);
+            Assert.IsTrue(checkOutPage.GetOrderStatusMessage().Contains("successfully processed!"));
         }
     }
 }
