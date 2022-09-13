@@ -40,4 +40,8 @@ DemoWeb Site :https://demowebshop.tricentis.com
 
 # Scenarios Automated
 
-Scenario's 1 and 2 are automated. As a user, I would want to add items to cart, securely checkout the order and monitor the status of my order.
+Scenario's 1 and 2 are automated. As a user, I would want to add items to cart, securely checkout the order and monitor the status of my order. This is the core workflow of an ecommerce site.
+
+# Side notes
+
+On the non-functional side of things, we could look at the performance of the site by checking request/response duration and identify bottlenecks which can be addressed to make the UX a delightful journey.
